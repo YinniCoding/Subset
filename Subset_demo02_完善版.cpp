@@ -22,6 +22,7 @@ using namespace std;
 int w[1000];  //存储已经给定的若干个数
 int x[1000];  //以0和1来表示数是否加入当前序列 
 int M,sum=0; //sum为所有元素总和 
+int static count3=0; //用于记录满足条件的wi序列的组合数 
 /*
 void Subset(int s,int k,int r，int M) 
 
@@ -92,6 +93,7 @@ void Subset(int s,int k,int r,int M) {
 	x[k]=1;
 	if(s+w[k]==M)  //如果结果等于M,则输出结果
 	{ 
+	   count3++;
 	   for(int i=0;i<=k;i++) {
 	   	//控制值输出x[i]=1,即已经加入数组的数 
 	   	if(x[i]==1) cout<<w[i]<<'\t'; 
@@ -126,5 +128,6 @@ int main() {
 	cout<<'\n'; 
 	cout<<"所有可能序列元素之为"<<c<<"的具体组合如下：\n"; 
 	Subset(0,0,sum,c);
+	cout<<"共有这样的组合"<<count3<<"组\n"; 
 	return 0;
 }
